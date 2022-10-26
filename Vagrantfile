@@ -1,4 +1,4 @@
-NUM_WORKER_NODES=2
+NUM_WORKER_NODES=1
 IP_NW="10.0.0."
 IP_START=10
 
@@ -31,8 +31,8 @@ Vagrant.configure("2") do |config|
     node.vm.hostname = "worker-node0#{i}"
     node.vm.network "private_network", ip: IP_NW + "#{IP_START + i}"
     node.vm.provider "virtualbox" do |vb|
-        vb.memory = 2048
-        vb.cpus = 1
+        vb.memory = 6086
+        vb.cpus = 4
     end
     node.vm.provision "shell", path: "scripts/common.sh"
     node.vm.provision "shell", path: "scripts/node.sh"
